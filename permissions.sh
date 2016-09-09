@@ -68,3 +68,17 @@ find storage/framework/cache/ -type d -exec chmod g+s {} \;
 
 setfacl -dR -m u::rwx storage/framework/cache/
 setfacl -dR -m g::rwx storage/framework/cache/
+
+#fix to Doctrine proxy files
+chgrp www-data -R storage/proxies/
+chmod -R ug+w storage/proxies/
+chmod -R o-w storage/proxies/
+
+find storage/proxies/ -type f -exec chmod ugo-x {} \;
+find storage/proxies/ -type d -exec chmod ugo+x {} \;
+
+find storage/proxies/ -type f -exec chmod g-s {} \;
+find storage/proxies/ -type d -exec chmod g+s {} \;
+
+setfacl -dR -m u::rwx storage/proxies/
+setfacl -dR -m g::rwx storage/proxies/
