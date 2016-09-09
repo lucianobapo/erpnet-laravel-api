@@ -170,6 +170,9 @@ return [
         ErpNET\App\Providers\ErpnetServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
 
+        LaravelDoctrine\ORM\DoctrineServiceProvider::class,
+        LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
+
         //
 
         /*
