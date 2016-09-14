@@ -34,8 +34,8 @@ class CreateSummariesTable extends BaseMigration {
             $table->string('mandante')->index();
 
             // Campos
-            $table->timestamp('start_date')->index();
-            $table->timestamp('end_date')->index();
+            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
+            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
         });
     }
 

@@ -34,7 +34,7 @@ class CreateContactsTable extends BaseMigration {
 			 */
             $table->string('mandante')->index();
 
-            $table->enum('contact_type', array_keys(config('delivery.contact_types')));
+            $table->string('contact_type');
             $table->string('contact_data');
 		});
 	}

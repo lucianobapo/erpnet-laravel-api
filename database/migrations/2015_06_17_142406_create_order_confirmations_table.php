@@ -34,7 +34,7 @@ class CreateOrderConfirmationsTable extends BaseMigration {
              */
             $table->string('mandante')->index();
 
-            $table->enum('type', array_keys(config('delivery.order_confirmation_types')));
+            $table->string('type');
             $table->string('message')->nullable();
         });
     }

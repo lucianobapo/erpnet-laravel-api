@@ -18,6 +18,7 @@ class CreatePartnerPartnerGroupTable extends BaseMigration {
 		{
 			$table->increments('id');
 			$table->timestamps();
+            $table->softDeletes();
 
 			$table->integer('partner_id')->unsigned()->index();
 			$table->integer('partner_group_id')->unsigned()->index();

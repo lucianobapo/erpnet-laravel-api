@@ -25,7 +25,7 @@ class CreateDocumentsTable extends BaseMigration {
 
             $table->string('mandante')->index();
 
-            $table->enum('document_type', array_keys(config('delivery.document_types')));
+            $table->string('document_type');
             $table->string('document_data');
 		});
 	}

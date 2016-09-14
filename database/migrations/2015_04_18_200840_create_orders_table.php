@@ -32,7 +32,7 @@ class CreateOrdersTable extends BaseMigration {
              */
             $table->timestamps();
             $table->softDeletes();
-            $table->timestamp('posted_at')->index();
+            $table->timestamp('posted_at')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 
             /**
              * Campos de dados
