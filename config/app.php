@@ -173,6 +173,8 @@ return [
         LaravelDoctrine\ORM\DoctrineServiceProvider::class,
         LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
 
+        Barryvdh\Debugbar\ServiceProvider::class,
+        Vittee\DebugbarDoctrine\DebugbarDoctrineServiceProvider::class,
         //
 
         /*
@@ -231,6 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

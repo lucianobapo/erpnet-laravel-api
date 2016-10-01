@@ -12,5 +12,6 @@
 */
 
 Route::get('/', function () {
+    Debugbar::error('Error!');
     return view('welcome');
 });

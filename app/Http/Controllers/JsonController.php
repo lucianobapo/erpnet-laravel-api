@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\OrderCreated;
 use ErpNET\App\Interfaces\OrderServiceInterface;
 use ErpNET\App\Interfaces\PartnerServiceInterface;
 use ErpNET\App\Interfaces\ProductServiceInterface;
@@ -46,9 +47,23 @@ class JsonController extends Controller
         logger($data);
         $returnJson = $orderService->createDeliverySalesOrderWithJson(json_encode($data['message']));
         $returnObj = json_decode($returnJson);
+
+        \Mail::to('luciano.bapo@gmail.com')
+            ->cc('ilhanet.lan@gmail.com')
+//            ->bcc($evenMoreUsers)
+            ->send(new OrderCreated());
+
+//        dd($returnJson);
         if (property_exists($returnObj,'error'))
-            return $returnJson;
+//            return $returnJson;
+            return response()
+                ->json($returnObj)
+//                ->withCallback($request->input('callback'))
+                ;
         else
-            return response()->json(["error"=>true,"message"=>"Json error"]);
+            return response()
+                ->json(["error"=>true,"message"=>"Json error"])
+//                ->withCallback($request->input('callback'))
+                ;
     }
 }
