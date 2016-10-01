@@ -174,7 +174,7 @@ return [
         LaravelDoctrine\Extensions\GedmoExtensionsServiceProvider::class,
 
         Barryvdh\Debugbar\ServiceProvider::class,
-        Vittee\DebugbarDoctrine\DebugbarDoctrineServiceProvider::class,
+//        Vittee\DebugbarDoctrine\DebugbarDoctrineServiceProvider::class,
         //
 
         /*
