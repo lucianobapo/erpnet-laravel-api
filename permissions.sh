@@ -1,6 +1,6 @@
 #!/bin/sh
 #fix to Monolog files
-chgrp luciano:www-data -R storage/logs/
+chown luciano:www-data -R storage/logs/
 chmod -R ug+w storage/logs/
 chmod -R o-w storage/logs/
 
