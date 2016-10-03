@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\OrderCreated;
+use App\Notifications\OrderCreatedNotify;
 use ErpNET\App\Interfaces\OrderServiceInterface;
 use ErpNET\App\Interfaces\PartnerServiceInterface;
 use ErpNET\App\Interfaces\ProductServiceInterface;
@@ -41,17 +42,19 @@ class JsonController extends Controller
         ]);
     }
 
-    public function ordem(Request $request, OrderServiceInterface $orderService)
+    public function ordem(Request $request, OrderServiceInterface $orderService, OrderCreatedNotify $orderCreatedNotify)
     {
         $data = $request->all();
         logger($data);
         $returnJson = $orderService->createDeliverySalesOrderWithJson(json_encode($data['message']));
         $returnObj = json_decode($returnJson);
 
-        \Mail::to('luciano.bapo@gmail.com')
-            ->cc('ilhanet.lan@gmail.com')
-//            ->bcc($evenMoreUsers)
-            ->send(new OrderCreated());
+        $orderCreatedNotify->sendNotification($returnObj);
+
+//        \Mail::to('luciano.bapo@gmail.com')
+//            ->cc('ilhanet.lan@gmail.com')
+////            ->bcc($evenMoreUsers)
+//            ->send(new OrderCreated());
 
 //        dd($returnJson);
         if (property_exists($returnObj,'error'))

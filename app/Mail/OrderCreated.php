@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
@@ -16,9 +17,9 @@ class OrderCreated extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data = null)
     {
-        //
+        $this->data = $data;
     }
 
     /**
@@ -30,6 +31,7 @@ class OrderCreated extends Mailable
     {
         return $this
 //            ->from('ilhanet.lan@gmail.com', 'Delivery 24 Horas')
+
             ->view('emails.emailOrderCreated')
             ->with([
                 'greeting' => 'Ordem Criada',

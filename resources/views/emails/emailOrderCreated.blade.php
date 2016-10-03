@@ -70,7 +70,7 @@ $style = [
                     <!-- Logo -->
                     <tr>
                         <td style="{{ $style['email-masthead'] }}">
-                            <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ env('ERPNET_URL', url('/')) }}" target="_blank">
+                            <a style="{{ $fontFamily }} {{ $style['email-masthead_name'] }}" href="{{ env('ERPNET_URL').'/orders' }}" target="_blank">
                                 {{ config('app.name') }}
                             </a>
                         </td>
