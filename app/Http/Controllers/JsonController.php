@@ -44,6 +44,7 @@ class JsonController extends Controller
 
     public function ordem(Request $request, OrderServiceInterface $orderService, OrderCreatedNotify $orderCreatedNotify)
     {
+
         $data = $request->all();
         logger($data);
         $returnJson = $orderService->createDeliverySalesOrderWithJson(json_encode($data['message']));
@@ -57,6 +58,7 @@ class JsonController extends Controller
 //            ->send(new OrderCreated());
 
 //        dd($returnJson);
+
         if (property_exists($returnObj,'error'))
 //            return $returnJson;
             return response()

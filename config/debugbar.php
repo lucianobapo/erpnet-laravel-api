@@ -12,7 +12,7 @@ return [
      |
      */
 
-    'enabled' => env('APP_DEBUGBAR', null),
+    'enabled' => null,
 
     /*
      |--------------------------------------------------------------------------
@@ -94,7 +94,7 @@ return [
         'route'           => true,  // Current route information
         'laravel'         => true, // Laravel version and environment
         'events'          => true, // All events fired
-        'default_request' => false, // Regular or special Symfony request logger
+        'default_request' => true, // Regular or special Symfony request logger
         'symfony_request' => true,  // Only one can be enabled..
         'mail'            => true,  // Catch mail messages
         'logs'            => true, // Add the latest log messages
@@ -116,7 +116,7 @@ return [
 
     'options' => [
         'auth' => [
-            'show_name' => false,   // Also show the users name/email in the debugbar
+            'show_name' => true,   // Also show the users name/email in the debugbar
         ],
         'db' => [
             'with_params'       => true,   // Render SQL with the parameters substituted
@@ -124,15 +124,15 @@ return [
             'backtrace'         => true,  // EXPERIMENTAL: Use a backtrace to find the origin of the query in your files.
             'explain' => [                 // EXPERIMENTAL: Show EXPLAIN output on queries
                 'enabled' => true,
-                'types' => ['SELECT', 'INSERT', 'UPDATE', 'DELETE'],     // ['SELECT', 'INSERT', 'UPDATE', 'DELETE']; for MySQL 5.6.3+
+                'types' => ['SELECT'],     // ['SELECT', 'INSERT', 'UPDATE', 'DELETE']; for MySQL 5.6.3+
             ],
             'hints'             => true,    // Show hints for common mistakes
         ],
         'mail' => [
-            'full_log' => true
+            'full_log' => false
         ],
         'views' => [
-            'data' => true,    //Note: Can slow down the application, because the data can be quite large..
+            'data' => false,    //Note: Can slow down the application, because the data can be quite large..
         ],
         'route' => [
             'label' => true  // show complete route on bar

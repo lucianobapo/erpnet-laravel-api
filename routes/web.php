@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
-    Debugbar::error('Error!');
     return view('welcome');
 });
+
+//Route::resource('partners', '\ErpNET\Models\Controllers\PartnersController');

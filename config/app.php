@@ -175,6 +175,9 @@ return [
 
         Barryvdh\Debugbar\ServiceProvider::class,
 //        Vittee\DebugbarDoctrine\DebugbarDoctrineServiceProvider::class,
+
+//        Dingo\Api\Provider\LaravelServiceProvider::class,
+        Prettus\Repository\Providers\RepositoryServiceProvider::class,
         //
 
         /*

@@ -9,14 +9,16 @@
         "laravel/framework": "5.3.*",
         "ilhanet/erpnet-helper": "dev-master",
         "ilhanet/erpnet-core": "dev-master",
-        "barryvdh/laravel-cors": "^0.8.2"
+        "ilhanet/erpnet-widget-resource": "dev-master",
+        "barryvdh/laravel-cors": "^0.8.2",
+        "dingo/api": "1.0.x@dev",
+        "prettus/l5-repository": "^2.6"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.0",
         "symfony/css-selector": "3.1.*",
         "symfony/dom-crawler": "3.1.*",
-        "ilhanet/debugbar-doctrine" : "dev-master",
         "barryvdh/laravel-debugbar": "^2.2"
     },
     "autoload": {
@@ -24,7 +26,9 @@
             "database"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "ErpNET\\Models\\": "packages/erpnet-models/src/",
+            "ErpNET\\Migrates\\": "packages/erpnet-migrates/src/"
         }
     },
     "autoload-dev": {
