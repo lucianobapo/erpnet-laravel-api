@@ -25,7 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->register(ErpnetModelsServiceProvider::class);
-        $this->app->register(ErpnetWidgetResourceServiceProvider::class);
+        if (class_exists(ErpnetModelsServiceProvider::class))
+            $this->app->register(ErpnetModelsServiceProvider::class);
+        if (class_exists(ErpnetWidgetResourceServiceProvider::class))
+            $this->app->register(ErpnetWidgetResourceServiceProvider::class);
     }
 }
