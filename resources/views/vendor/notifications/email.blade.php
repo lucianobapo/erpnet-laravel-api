@@ -13,6 +13,18 @@
             }
         }
     </style>
+
+    <script type="application/ld+json">
+        {   "@context":"http://schema.org",
+            "@type":"EmailMessage",
+            "potentialAction":{
+                "@type":"ViewAction",
+                "target":"{{ $actionUrl }}",
+                "name":"{{ $actionText }}"
+            },
+            "description":"{{ config('app.name') }}"
+        }
+    </script>
 </head>
 
 <?php
@@ -63,17 +75,7 @@ $style = [
 <?php $fontFamily = 'font-family: Arial, \'Helvetica Neue\', Helvetica, sans-serif;'; ?>
 
 <body style="{{ $style['body'] }}">
-<script type="application/ld+json">
-{   "@context":"http://schema.org",
-    "@type":"EmailMessage",
-    "potentialAction":{
-        "@type":"ViewAction",
-        "target":"{{ $actionUrl }}",
-        "name":"{{ $actionText }}"
-    },
-    "description":"{{ config('app.name') }}"
-}
-</script>
+
     <table width="100%" cellpadding="0" cellspacing="0">
         <tr>
             <td style="{{ $style['email-wrapper'] }}" align="center">
