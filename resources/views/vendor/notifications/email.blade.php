@@ -22,6 +22,7 @@
             "potentialAction": {
                 "type": "ViewAction",
                 "name": "{{ $actionText }}",
+                "url": "{{ $actionUrl }}",
                 "target": "{{ $actionUrl }}"
             }
         }
