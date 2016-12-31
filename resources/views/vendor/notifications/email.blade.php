@@ -15,14 +15,15 @@
     </style>
 
     <script type="application/ld+json">
-        {   "@context":"http://schema.org",
-            "@type":"EmailMessage",
-            "potentialAction":{
-                "@type":"ViewAction",
-                "target":"{{ $actionUrl }}",
-                "name":"{{ $actionText }}"
-            },
-            "description":"{{ config('app.name') }}"
+        {
+            "@context": "http://schema.org",
+            "type": "EmailMessage",
+            "description": "{{ config('app.name') }}",
+            "potentialAction": {
+                "type": "ViewAction",
+                "name": "{{ $actionText }}",
+                "target": "{{ $actionUrl }}"
+            }
         }
     </script>
 </head>
