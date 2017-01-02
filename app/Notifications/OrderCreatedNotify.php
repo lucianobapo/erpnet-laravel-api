@@ -53,17 +53,15 @@ class OrderCreatedNotify extends Notification
         if (!is_null($this->data)){
             $formatter = new NumberFormatter(config('app.locale'), NumberFormatter::CURRENCY);
 
-//            $address = $this->data->address->logradouro.', '.$this->data->address->numero.' - '.$this->data->address->bairro.' / CEP:'.$this->data->address->cep;
-            logger(json_encode($this->data));
             $mailMessage
                 ->success()
                 ->greeting('Nova Ordem')
                 ->line($this->data->message)
                 ->line('Valor Total: '.$formatter->format($this->data->valor_total))
                 ->line('Obs.: '.$this->data->observacao)
-//                ->line('Endereço: '.$address)
-//                ->line('Endereço Compl.: '.$this->data->address->complemento)
-//                ->line('Endereço Obs.: '.$this->data->address->obs)
+                ->line('Endereço: '.$this->data->endereco)
+                ->line('Endereço Compl.: '.$this->data->endereco_compl)
+                ->line('Endereço Obs.: '.$this->data->endereco_obs)
                 ->action('Confirmar Ordem nº'.$this->data->id, env('ERPNET_URL').'/confirmations/confirm/'.$this->data->id)
                 ->line('Ordens Abertas: ' . env('ERPNET_URL').'/orders/abertas')
                 ->line('Todas as Ordens: ' . env('ERPNET_URL').'/orders')
