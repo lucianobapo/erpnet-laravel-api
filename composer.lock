@@ -1050,12 +1050,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/lucianobapo/erpnet-core.git",
-                "reference": "fcdd9ff4141e776da919971e43d727d7df30ff8d"
+                "reference": "cc15a4665a10a6a442af851b1a64c939eb7f8dfe"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lucianobapo/erpnet-core/zipball/fcdd9ff4141e776da919971e43d727d7df30ff8d",
-                "reference": "fcdd9ff4141e776da919971e43d727d7df30ff8d",
+                "url": "https://api.github.com/repos/lucianobapo/erpnet-core/zipball/cc15a4665a10a6a442af851b1a64c939eb7f8dfe",
+                "reference": "cc15a4665a10a6a442af851b1a64c939eb7f8dfe",
                 "shasum": ""
             },
             "require": {
@@ -1088,7 +1088,7 @@
                     "email": "luciano.bapo@gmail.com"
                 }
             ],
-            "time": "2017-01-02 21:37:43"
+            "time": "2017-01-05 18:12:32"
         },
         {
             "name": "ilhanet/erpnet-helper",
