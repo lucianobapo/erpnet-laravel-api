@@ -56,7 +56,13 @@ class OrderCreatedNotify extends Notification
             $mailMessage
                 ->success()
                 ->greeting('Nova Ordem')
-                ->line($this->data->message)
+                ->line($this->data->message);
+
+            foreach ($this->data->items as $item) {
+                $mailMessage->line(' - '.$item);
+            }
+
+            $mailMessage
                 ->line('Valor Total: '.$formatter->format($this->data->valor_total))
                 ->line('Obs.: '.$this->data->observacao)
                 ->line('Endereço: '.$this->data->endereco)
