@@ -62,13 +62,19 @@ class OrderCreatedNotify extends Notification
                 $mailMessage->line(' - '.$item);
             }
 
-            $mailMessage
-                ->line('Valor Total: '.$formatter->format($this->data->valor_total))
-                ->line('Obs.: '.$this->data->observacao)
-                ->line('Endereço: '.$this->data->endereco)
-                ->line('Endereço Compl.: '.$this->data->endereco_compl)
-                ->line('Endereço Obs.: '.$this->data->endereco_obs)
-                ->action('Confirmar Ordem nº'.$this->data->id, env('ERPNET_URL').'/confirmations/confirm/'.$this->data->id)
+            $mailMessage->line('Valor Total: '.$formatter->format($this->data->valor_total));
+            if (!empty($this->data->observacao))
+                $mailMessage->line('Obs.: '.$this->data->observacao);
+
+            $mailMessage->line('Endereço: '.$this->data->endereco);
+
+            if (!empty($this->data->endereco_compl))
+                $mailMessage->line('Endereço Compl.: '.$this->data->endereco_compl);
+
+            if (!empty($this->data->endereco_obs))
+                $mailMessage->line('Endereço Obs.: '.$this->data->endereco_obs);
+
+            $mailMessage->action('Confirmar Ordem nº'.$this->data->id, env('ERPNET_URL').'/confirmations/confirm/'.$this->data->id)
                 ->line('Ordens Abertas: ' . env('ERPNET_URL').'/orders/abertas')
                 ->line('Todas as Ordens: ' . env('ERPNET_URL').'/orders')
             ;
